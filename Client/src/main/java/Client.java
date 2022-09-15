@@ -7,11 +7,13 @@ import java.util.Scanner;
 
 public class Client {
 
-    public static int authorizedCount = 0;
+    private static int authorizedCount = 0;
+    private static final int port = 8089;
+    private static final String host = "netology.homework";
+
+
 
     public static void main(String[] args) {
-        String host = "127.0.0.1";
-        int port = 8089;
         try (Socket clientSocket = new Socket(host, port);
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {

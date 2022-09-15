@@ -5,10 +5,11 @@ import java.util.List;
 
 public class Authentication {
 
-    HashMap<String, char[]> logPass;
+    private HashMap<String, char[]> logPass;
 
     public Authentication() {
         logPass = generateLoginPasswords();
+        System.out.println("Authentication service started");
     }
 
     public boolean authorized(String login, String password) {

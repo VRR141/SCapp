@@ -13,8 +13,6 @@ public class Server {
     public static void main(String[] args) {
         System.out.println("Server started. Port: " + port);
 
-        System.out.println("Authentication service started");
-
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while(true) {
                 try (Socket client = serverSocket.accept();
@@ -27,6 +25,13 @@ public class Server {
 
                     int answer = chooseStep(out, in);
 
+
+                    /*
+                    Login Password for authorize
+                    log2 123456
+                    log0 qwerty
+                    log1 qazwsx
+                     */
                     switch (answer) {
                         case 2 -> {
                             sendMsg(out, "Enter login and password");
